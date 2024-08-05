@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <title>Info 3C</title>
+
+    <style>
+        body {
+            background-color: #212529;
+            color: #ffffff;
+        }
+
+        .card {
+            background-color: #343a40;
+            color: #ffffff;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+
+        .card-footer a {
+            color: #007bff;
+        }
+
+        .card-footer a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center align-items-center" style="height: 100vh;">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h4>INFO 3C</h4>
+                    </div>
+                    <div class="card-body">
+                        <form id="loginForm" action="login.php" method="POST">
+                            <div class="form-group">
+                                <label for="username">Usuário</label>
+                                <input type="text" name="username" class="form-control" id="username"
+                                    placeholder="Digite seu nome" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Senha</label>
+                                <input type="password" name="password" class="form-control" id="password"
+                                    placeholder="Digite sua senha" required>
+                            </div>
+                            <div class="d-flex justify-content-around">
+                                <button type="submit" class="btn btn-primary btn-block mt-3">Lider</button>
+                                <a href="aluno.php" class="btn btn-success btn-block mt-3">Aluno</a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="#">Esqueceu a senha?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Erro -->
+    <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="errorModalLabel">Erro de Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    O nome de usuário ou a senha estão incorretos. Por favor, tente novamente.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./assets/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="./assets/js/popper.min.js"></script>
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Exibir o modal de erro se o login falhar
+        document.addEventListener('DOMContentLoaded', function () {
+            // Suponha que o erro de login é passado via query string
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('error') === 'true') {
+                var errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
+                errorModal.show();
+            }
+        });
+    </script>
+</body>
+
+</html>
